@@ -1,6 +1,5 @@
 import time
 import pygame as pyme
-
 pyme.init()
 pyme.mixer.init()
 
@@ -8,17 +7,18 @@ ask = input("\nTimer for hours, minutes or seconds:")
 
 def play_sound():
     try:
-        pyme.mixer.music.load("/home/linux/Adi-Python/alarm_end.mp3")
+        pyme.mixer.music.load("timer_end.mp3") # Your choice of BEEP. Give the path.
         pyme.mixer.music.set_volume(1.0)
-        pyme.mixer.music.play()
+        pyme.mixer.music.play(5)
         while pyme.mixer.music.get_busy():
             pyme.time.Clock().tick(5)  # Keep the program running while the sound plays
-    except pyme.error as e:
-        print(f"Error playing sound: {e}")
+    except pyme.error as error:
+        print(f"Error playing sound: {error}")
 
 def hour():
     ask_user_time2 = input("Enter for how many hours do you wanna run the timer:")
     print('')
+
     if ask_user_time2.isdigit():
         ask_user_time = int(ask_user_time2)
         ask_user_time = ask_user_time*60*60 +1
@@ -33,12 +33,13 @@ def hour():
         print(f"Countdown to {ask_user_time2} hours/hour is on:{ask_user_time} or {ask_user_time/60:.2f} minutes.")
         time.sleep(1)
 
-    print("\nAlarm Ended!")
+    print("\nTimer Ended!")
     play_sound()
 
 def min():
     ask_user_time2 = input("Enter for how many minutes do you wanna run the timer:")
     print('')
+
     if ask_user_time2.isdigit():
         ask_user_time = int(ask_user_time2)
         ask_user_time = ask_user_time*60 +1
@@ -59,12 +60,13 @@ def min():
         print(f"Countdown to {ask_user_time2} minutes/minute is on:{ask_user_time} or {ask_user_time/60:.2f} minutes.")
         time.sleep(1)
 
-    print("\nAlarm Ended!")
+    print("\nTimer Ended!")
     play_sound()
 
 def sec():
     ask_user_time2 = input("Enter for how many seconds do you wanna run the timer:")
     print('')
+
     if ask_user_time2.isdigit():
         ask_user_time = int(ask_user_time2) +1
     else:
@@ -83,7 +85,7 @@ def sec():
         print(f"Countdown to {ask_user_time2} seconds/second is on:{ask_user_time}.")
         time.sleep(1)
 
-    print("\nAlarm Ended!")
+    print("\nTimer Ended!")
     play_sound()
 
 if ask.lower() in ["hour","h","hours"]:
