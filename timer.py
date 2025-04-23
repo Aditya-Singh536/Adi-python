@@ -49,12 +49,6 @@ def min():
         ask_user_time = 5
         ask_user_time = ask_user_time*60 +1
     
-    if int(ask_user_time2) > 60:
-        print("It is not in minutes running in hours.\n")
-        hour()
-    else:
-        pass
-
     for i in range(1,ask_user_time):
         ask_user_time -= 1
         print(f"Countdown to {ask_user_time2} minutes/minute is on:{ask_user_time} or {ask_user_time/60:.2f} minutes.")
@@ -73,13 +67,7 @@ def sec():
         print(ValueError("Invalid Input!"))
         print(f"Running timer for 30 seconds.")
         ask_user_time = 30 +1
-    
-    if int(ask_user_time2) > 60:
-        print("It is in minutes running in minutes.\n")
-        min()
-    else:
-        pass
-
+        
     for i in range(1,ask_user_time):
         ask_user_time -= 1
         print(f"Countdown to {ask_user_time2} seconds/second is on:{ask_user_time}.")
