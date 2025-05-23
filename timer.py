@@ -21,12 +21,12 @@ def hour():
 
     if ask_user_time2.isdigit():
         ask_user_time = int(ask_user_time2)
-        ask_user_time = ask_user_time*60*60 +1
+        ask_user_time = ask_user_time*60*60
     else:
         print(ValueError("Invalid Input!"))
         print(f"Running timer for 1 hour.")
         ask_user_time = 1
-        ask_user_time = ask_user_time*60*60 +1
+        ask_user_time = ask_user_time*60*60
 
     for i in range(1,ask_user_time):
         ask_user_time -= 1
@@ -42,12 +42,12 @@ def min():
 
     if ask_user_time2.isdigit():
         ask_user_time = int(ask_user_time2)
-        ask_user_time = ask_user_time*60 +1
+        ask_user_time = ask_user_time*60
     else:
         print(ValueError("Invalid Input!"))
         print(f"Running timer for 5 minutes.")
         ask_user_time = 5
-        ask_user_time = ask_user_time*60 +1
+        ask_user_time = ask_user_time*60
     
     for i in range(1,ask_user_time):
         ask_user_time -= 1
@@ -62,11 +62,11 @@ def sec():
     print('')
 
     if ask_user_time2.isdigit():
-        ask_user_time = int(ask_user_time2) +1
+        ask_user_time = int(ask_user_time2)
     else:
         print(ValueError("Invalid Input!"))
         print(f"Running timer for 30 seconds.")
-        ask_user_time = 30 +1
+        ask_user_time = 30
         
     for i in range(1,ask_user_time):
         ask_user_time -= 1
