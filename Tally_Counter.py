@@ -29,6 +29,7 @@ def minus():
                                    text_color="red",
                                    font=("Arial", 20))
         error_label.pack(pady=50)
+        root.mainloop()
 
 def cls():
     count[0] = 0
