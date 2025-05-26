@@ -123,8 +123,17 @@ def wicket():
         root.mainloop()
 
 def over():
-    count_overs[0] += 1
-    label_overs.configure(text=str(count_overs[0]))
+    if count_wickets[0] < 10:
+        count_overs[0] += 1
+        label_overs.configure(text=str(count_overs[0]))
+    else:
+        root = ctk.CTk()
+        root.geometry("552x216")
+        label = ctk.CTkLabel(root, text="All Batsman are out!!",
+                             text_color="red",
+                             font=("Arial", 50))
+        label.pack(pady=50)
+        root.mainloop()
 
 button1 = ctk.CTkButton(button_frame, text="+1", font=("Arial", 40), command=one, width=100, height=100)
 button1.grid(row=0, column=1, padx=10, pady=10)
