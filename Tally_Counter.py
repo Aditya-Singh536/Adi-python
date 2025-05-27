@@ -2,10 +2,9 @@ import customtkinter as ctk
 
 
 app = ctk.CTk()
-ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("dark-blue")
 app.title("Tally Counter!")
 app.geometry("500x400")
+app.configure(fg_color="black")
 
 count = [0]
 
