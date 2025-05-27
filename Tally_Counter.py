@@ -34,7 +34,7 @@ def cls():
     count[0] = 0
     label.configure(text=str(count[0]))
 
-button_frame = ctk.CTkFrame(app)
+button_frame = ctk.CTkFrame(app,fg_color="black")
 button_frame.pack(pady=20)
 
 button = ctk.CTkButton(button_frame, text="+",
@@ -45,7 +45,8 @@ button = ctk.CTkButton(button_frame, text="+",
                        width=150,
                        fg_color="aqua",
                        text_color="black",
-                       hover_color="blue")
+                       hover_color="blue",
+                       bg_color="black")
 button.pack(side="left", padx=10)
 
 button2 = ctk.CTkButton(button_frame, text="-",
@@ -56,7 +57,8 @@ button2 = ctk.CTkButton(button_frame, text="-",
                         width=150,
                         fg_color="aqua",
                         text_color="black",
-                        hover_color="blue")
+                        hover_color="blue",
+                        bg_color="black")
 button2.pack(side="left", padx=10)
 
 button3 = ctk.CTkButton(app, text="Reset",
