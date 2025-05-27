@@ -3,16 +3,15 @@ import customtkinter as ctk
 app = ctk.CTk()
 app.title("Runs Counter!")
 app.geometry("600x735")
-ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("dark-blue")
+app.configure(fg_color="black")
 
 count_runs = [0]
 count_wickets = [0]
 count_overs = [0]
 
-label_frame = ctk.CTkFrame(app)
+label_frame = ctk.CTkFrame(app,fg_color="black")
 label_frame.pack(pady=20)
-button_frame = ctk.CTkFrame(app)
+button_frame = ctk.CTkFrame(app,fg_color="black")
 button_frame.pack(pady=20)
 
 
