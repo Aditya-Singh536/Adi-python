@@ -6,6 +6,7 @@ ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
 
 root = ctk.CTk()
+root.title("Report Card!")
 root.geometry("595x455")
 root.configure(fg_color="#555555")
 
