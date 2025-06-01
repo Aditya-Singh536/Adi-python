@@ -1,24 +1,48 @@
-print('What do you want to do?.Add,Substract,Multiply or Divide.Give the values.\n')
+def calculator():
+    ask = input("What do you wanna do select the operation please from DMAS:").lower().strip()
 
-def calculater():
-    try:
-        first_num = float(input('First number:'))
-        second_num = float(input('Second number:'))
+    num1 = input("Enter the first number:")
+    num2 = input("Enter the second number:")
+
+    if num1.isnumeric() and num2.isnumeric():
+        num1 = float(num1)
+        num2 = float(num2)
+
+    divide = lambda: print(num2/num1)
+
+    multiply = lambda: print(num1*num2)
+
+    add = lambda: print(num1+num2)
+
+    subtract = lambda: print(num1-num2)
+
+    if ask == 'd' or ask == 'divide':
+        divide()
+
+    elif ask == 'm' or ask == 'multiply':
+        multiply()
+
+    elif ask == 'a' or ask == 'add':
+        add()
+
+    elif ask == 's' or ask == 'subtract':
+        subtract()
+
+    else:
+        print("Invalid operation selected. Please choose from DMAS (Divide, Multiply, Add, Subtract).")
+
+if __name__ == "__main__":
+    calculator()
     
-        taking_input = input('Press a to add,s to substract,m to multiply and d to divide:')
+    while True:
+        again = input("Do you want to do another calculation? (yes/no): ").strip().lower()
 
-    #Main programing
+        if again == 'yes':
+            calculator()
 
-    
-        if taking_input.lower() == 'a':
-            print(f'{first_num + second_num} is the sum of {first_num} + {second_num}.')
-        elif taking_input.lower() == 's':
-            print(f'{first_num - second_num} is the diffrence of {first_num} - {second_num}.')
-        elif taking_input.lower() == 'm':
-            print(f'{first_num * second_num} is the product of {first_num} x {second_num}.')
-        elif taking_input.lower() == 'd':
-            print(f'{(first_num / second_num).__round__(2)} is the quotient of {first_num} ÷ {second_num} and the remainder is {first_num % second_num}.')
-    except:
-        print(ValueError('Invalid Input!')) 
-
-calculater()
+        elif again == 'no':
+            print("Thank you for using the calculator!")
+            break
+        
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")
