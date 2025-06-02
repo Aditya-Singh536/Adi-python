@@ -1,20 +1,20 @@
 def calculator():
-    ask = input("What do you wanna do select the operation please from DMAS:").lower().strip()
+    ask = input("\n\nWhat do you wanna do select the operation please from DMAS:").lower().strip()
 
-    num1 = input("Enter the first number:")
-    num2 = input("Enter the second number:")
+    num1 = input("\nEnter the first number (Is the divisor if selected D):")
+    num2 = input("Enter the second number (Is the dividend if selected D):")
 
     if num1.isnumeric() and num2.isnumeric():
         num1 = float(num1)
         num2 = float(num2)
 
-    divide = lambda: print(num2/num1)
+    divide = lambda: print(f"\nThe Quotient is:{num2/num1}\n")
 
-    multiply = lambda: print(num1*num2)
+    multiply = lambda: print(f"\nThe Product is:{num1*num2}\n")
 
-    add = lambda: print(num1+num2)
+    add = lambda: print(f"\nThe Sum is:{num1+num2}\n")
 
-    subtract = lambda: print(num1-num2)
+    subtract = lambda: print(f"\nThe Diffrence is:{num1-num2}\n")
 
     if ask == 'd' or ask == 'divide':
         divide()
