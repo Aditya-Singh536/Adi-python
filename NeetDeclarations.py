@@ -1,6 +1,6 @@
 #_________________________________________________________________________________________________________________#
 class Stu_Details:
-    stu_id = int(input("Plese enter your six digit ID:"))
+    stu_id = int(input("Please enter your six digit ID:"))
     converting_string = str(stu_id)
     no_of_digits = len(converting_string)
 #_________________________________________________________________________________________________________________#
