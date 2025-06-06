@@ -1,6 +1,12 @@
 blocks_travel_diff = 8
 x_coordinates = input('Enter (x) Co-ordinates:')
 z_coordinates = input('Enter (z) Co-ordinates:')
+if x_coordinates.isdigit() and z_coordinates.isdigit():
+    x_coordinates = int(x_coordinates)
+    z_coordinates = int(z_coordinates)
+else:
+    print(f'Invalid Input! Please check the x and z coordinates {x_coordinates} and {z_coordinates}.')
+    exit(1)
 
 def mine_coor_converter(): 
 
@@ -29,7 +35,4 @@ def mine_coor_converter():
     else:
         print('Invalid Input!')
 
-if x_coordinates.isfloat() and z_coordinates.isfloat():
-    mine_coor_converter
-else:
-    print(f'Invalid Input! Please check the x ans z coordinates {x_coordinates} and {z_coordinates}.')
+mine_coor_converter()
