@@ -1,6 +1,8 @@
 import customtkinter as ctk
 from PIL import Image, ImageTk
 
+# if there are any error plase intall the dependency and images.
+
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
 
