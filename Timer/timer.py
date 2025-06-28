@@ -10,7 +10,7 @@ ask = input("\nTimer for hours, minutes or seconds:")
 def play_sound():
     try:
         pyme.mixer.music.load(
-            "/home/bash/Adi-python/Timer/timer_end.mp3"
+            "/home/user/Adi-python/Timer/timer_end.mp3"
         )  # Your choice of BEEP. Give the path.
         pyme.mixer.music.set_volume(1.0)
         pyme.mixer.music.play(5)
