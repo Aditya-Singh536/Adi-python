@@ -1,17 +1,25 @@
 import customtkinter as ctk
 import tkinter.messagebox as tkmb
 
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("dark-blue")
 
+
+# --- Backend Contact Manager Class (remains unchanged) ---
 class ContactManager:
     def __init__(self):
-        self.contacts = {"A": "845845", "B": "34983"}
+        self.contacts = {
+            "Alice": "8458451234",
+            "Bob": "3498309876",
+            "Charlie": "7890123456",
+        }
 
     def add_contact(self, name, phone_num):
         if not name or not phone_num:
             return "Name and phone number cannot be empty.", False
         if not phone_num.isdigit() or len(phone_num) != 10:
             return (
-                "Invalid Indian phone number. It must be 10 digits and contain only numbers.",
+                "Invalid Phone Number!!",
                 False,
             )
 
@@ -42,19 +50,71 @@ class ContactManager:
         return self.contacts
 
 
+# --- New Class for the "Show All Contacts" Window ---
+class AllContactsWindow(ctk.CTkToplevel):
+    def __init__(self, master, manager):
+        super().__init__(master)
+        self.manager = manager
+        self.title("All Contacts")
+        self.geometry("450x400")
+        self.resizable(False, False)
+
+        # Make it modal (optional, but good for info windows)
+        self.grab_set()  # Blocks interaction with the main window until this is closed
+        self.transient(master)  # Keeps this window on top of the main window
+
+        self._create_widgets()
+        self._load_contacts()
+
+    def _create_widgets(self):
+        ctk.CTkLabel(self, text="Current Contacts", font=("Arial", 18, "bold")).pack(
+            pady=10
+        )
+
+        # Frame for textbox and scrollbar
+        text_frame = ctk.CTkFrame(self)
+        text_frame.pack(pady=5, padx=20, fill="both", expand=True)
+
+        self.contact_textbox = ctk.CTkTextbox(
+            text_frame, width=400, height=250, wrap="word"
+        )
+        self.contact_textbox.pack(side="left", fill="both", expand=True)
+        self.contact_textbox.configure(state="disabled")  # Make it read-only
+
+        # Add a scrollbar
+        self.textbox_scrollbar = ctk.CTkScrollbar(
+            text_frame, command=self.contact_textbox.yview
+        )
+        self.textbox_scrollbar.pack(side="right", fill="y")
+        self.contact_textbox.configure(yscrollcommand=self.textbox_scrollbar.set)
+
+        ctk.CTkButton(self, text="Close", command=self.destroy).pack(pady=10)
+
+    def _load_contacts(self):
+        self.contact_textbox.configure(state="normal")  # Enable for editing
+        self.contact_textbox.delete("1.0", "end")  # Clear current content
+
+        contacts = self.manager.get_all_contacts()
+        if not contacts:
+            self.contact_textbox.insert("end", "No contacts stored yet.")
+        else:
+            for name, phone in contacts.items():
+                self.contact_textbox.insert("end", f"Name: {name}, Phone: {phone}\n")
+        self.contact_textbox.configure(state="disabled")  # Disable again
+
+
+# --- Main Application Window Class ---
 class ContactApp(ctk.CTk):
     def __init__(self, manager):
         super().__init__()
         self.manager = manager
         self.title("Contact List Manager")
-        self.geometry("600x680")  # Increased height slightly for the new button
+        self.geometry("600x680")  # Adjust height as needed
         self.resizable(False, False)
 
-        ctk.set_appearance_mode("System")
-        ctk.set_default_color_theme("blue")
-
         self._create_widgets()
-        self._update_contact_display()  # Display contacts on startup
+        # No need to call _update_contact_display here anymore,
+        # as the main window textbox is removed.
 
     def _create_widgets(self):
         # --- Add Contact Section ---
@@ -69,7 +129,7 @@ class ContactApp(ctk.CTk):
         self.name_entry = ctk.CTkEntry(add_frame, width=250)
         self.name_entry.pack(pady=(0, 5))
 
-        ctk.CTkLabel(add_frame, text="Phone Number (10 digits):").pack(pady=(5, 0))
+        ctk.CTkLabel(add_frame, text="Phone Number:").pack(pady=(5, 0))
         self.phone_entry = ctk.CTkEntry(add_frame, width=250)
         self.phone_entry.pack(pady=(0, 10))
 
@@ -111,26 +171,14 @@ class ContactApp(ctk.CTk):
             delete_frame, text="Delete Contact", command=self._delete_contact_gui
         ).pack(pady=5)
 
-        # --- Display Contacts Section ---
-        display_frame = ctk.CTkFrame(self)
-        display_frame.pack(pady=10, padx=20, fill="both", expand=True)
-
-        ctk.CTkLabel(
-            display_frame, text="All Contacts", font=("Arial", 16, "bold")
-        ).pack(pady=5)
-
-        # Button to explicitly show all contacts
-        ctk.CTkButton(
-            display_frame,
-            text="Refresh All Contacts",
-            command=self._update_contact_display,
-        ).pack(pady=(0, 10))
-
-        self.contact_textbox = ctk.CTkTextbox(
-            display_frame, width=500, height=150, wrap="word"
+        # --- New "Show All Contacts" Button ---
+        # This button replaces the old "Display Contacts Section" in the main window
+        show_all_button = ctk.CTkButton(
+            self,
+            text="Show All Contacts",
+            command=self._show_all_contacts_window,
         )
-        self.contact_textbox.pack(pady=5, fill="both", expand=True)
-        self.contact_textbox.configure(state="disabled")
+        show_all_button.pack(pady=20)
 
     def _add_contact_gui(self):
         name = self.name_entry.get().strip()
@@ -139,7 +187,9 @@ class ContactApp(ctk.CTk):
         if success:
             tkmb.showinfo("Success", message)
             self._clear_entries([self.name_entry, self.phone_entry])
-            self._update_contact_display()
+            # If the "All Contacts" window is open, it won't auto-update.
+            # We could add logic to refresh it if it's visible, but for now,
+            # the user will just close and reopen it.
         else:
             tkmb.showerror("Error", message)
 
@@ -159,20 +209,13 @@ class ContactApp(ctk.CTk):
         if success:
             tkmb.showinfo("Success", message)
             self._clear_entries([self.delete_entry])
-            self._update_contact_display()
+            # Similar to add, the new window won't auto-update.
         else:
             tkmb.showerror("Error", message)
 
-    def _update_contact_display(self):
-        self.contact_textbox.configure(state="normal")
-        self.contact_textbox.delete("1.0", "end")
-        contacts = self.manager.get_all_contacts()
-        if not contacts:
-            self.contact_textbox.insert("end", "No contacts stored yet.")
-        else:
-            for name, phone in contacts.items():
-                self.contact_textbox.insert("end", f"Name: {name}, Phone: {phone}\n")
-        self.contact_textbox.configure(state="disabled")
+    def _show_all_contacts_window(self):
+        # Create and display the new window
+        AllContactsWindow(self, self.manager)
 
     def _clear_entries(self, entries):
         for entry in entries:
@@ -184,3 +227,6 @@ if __name__ == "__main__":
     contact_manager = ContactManager()
     app = ContactApp(contact_manager)
     app.mainloop()
+# This code creates a contact management application using customtkinter.
+# It allows users to add, search, delete contacts, and view all contacts in a separate window.
+# The application is designed to be user-friendly with clear error handling and feedback.

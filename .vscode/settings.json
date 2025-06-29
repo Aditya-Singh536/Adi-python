@@ -30,6 +30,7 @@
             "shinchan",
             "taauko",
             "tkmb",
-            "wraplength"
+            "wraplength",
+            "yscrollcommand"
       ]
 }
