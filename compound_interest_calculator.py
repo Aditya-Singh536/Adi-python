@@ -32,6 +32,6 @@ else:
     raise Exception("**Invalid Input**")
 
 
-result = principle * (1 + rate/100) ** time
+result = principle * (1 + rate / 100) ** time
 
 print(f"\nBalance after {time} year/s:${result:.2f}")

@@ -1,5 +1,9 @@
 def calculator():
-    ask = input("\n\nWhat do you wanna do select the operation please from DMAS:").lower().strip()
+    ask = (
+        input("\n\nWhat do you wanna do select the operation please from DMAS:")
+        .lower()
+        .strip()
+    )
 
     num1 = input("\nEnter the first number (Is the divisor if selected D):")
     num2 = input("Enter the second number (Is the dividend if selected D):")
@@ -14,35 +18,40 @@ def calculator():
 
     add = lambda: print(f"\nThe Sum is:{num1+num2}\n")
 
-    subtract = lambda: print(f"\nThe Diffrence is:{num1-num2}\n")
+    subtract = lambda: print(f"\nThe Difference is:{num1-num2}\n")
 
-    if ask == 'd' or ask == 'divide':
+    if ask == "d" or ask == "divide":
         divide()
 
-    elif ask == 'm' or ask == 'multiply':
+    elif ask == "m" or ask == "multiply":
         multiply()
 
-    elif ask == 'a' or ask == 'add':
+    elif ask == "a" or ask == "add":
         add()
 
-    elif ask == 's' or ask == 'subtract':
+    elif ask == "s" or ask == "subtract":
         subtract()
 
     else:
-        print("Invalid operation selected. Please choose from DMAS (Divide, Multiply, Add, Subtract).")
+        print(
+            "Invalid operation selected. Please choose from DMAS (Divide, Multiply, Add, Subtract)."
+        )
+
 
 if __name__ == "__main__":
     calculator()
-    
-    while True:
-        again = input("Do you want to do another calculation? (yes/no): ").strip().lower()
 
-        if again == 'yes':
+    while True:
+        again = (
+            input("Do you want to do another calculation? (yes/no): ").strip().lower()
+        )
+
+        if again == "yes":
             calculator()
 
-        elif again == 'no':
+        elif again == "no":
             print("Thank you for using the calculator!")
             break
-        
+
         else:
             print("Invalid input. Please enter 'yes' or 'no'.")
