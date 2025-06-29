@@ -1,75 +1,114 @@
 import customtkinter as ctk
+import tkinter.messagebox as tkmb  # For improved error messages
 
 
-app = ctk.CTk()
-app.title("Tally Counter!")
-app.geometry("500x400")
-app.configure(fg_color="black")
+class TallyCounterApp(ctk.CTk):
+    def __init__(self):
+        super().__init__()
 
-count = [0]
+        # --- Window Setup ---
+        self.title("Modern Tally Counter")
+        self.geometry("400x550")  # Slightly taller for better spacing
+        self.resizable(False, False)  # Fixed size for consistent look
 
-label = ctk.CTkLabel(app, text=str(count[0]),
-                     font=("Arial", 60),
-                     text_color="white")
-label.pack(pady=20)
+        # --- Appearance Modes & Themes (Modern Look) ---
+        ctk.set_appearance_mode("Dark")  # Start with Dark mode for a sleek look
+        ctk.set_default_color_theme("green")  # A modern green accent
 
-def add(): 
-    count[0] += 1
-    label.configure(text=str(count[0]))
+        # --- Counter Variable ---
+        # Using a list allows modifying it inside functions without `nonlocal` or `self` if passed
+        # For a class-based app, an instance variable is more direct and preferred.
+        self.count = 0
 
-def minus():
-    if count[0] > 0:
-        count[0] -= 1
-        label.configure(text=str(count[0]))
-    else:
-        root = ctk.CTk()
-        root.geometry("300x150")
-        error_label = ctk.CTkLabel(root, text="Can't go in negative digits!!",
-                                   text_color="red",
-                                   font=("Arial", 20))
-        error_label.pack(pady=50)
-        root.mainloop()
+        self._create_widgets()
 
-def cls():
-    count[0] = 0
-    label.configure(text=str(count[0]))
+    def _create_widgets(self):
+        # --- Main Counter Display ---
+        # Use a frame to group the count label and give it some padding
+        display_frame = ctk.CTkFrame(
+            self, fg_color="transparent"
+        )  # Transparent background
+        display_frame.pack(pady=(50, 20), padx=20, fill="x")
 
-button_frame = ctk.CTkFrame(app,fg_color="black")
-button_frame.pack(pady=20)
+        self.count_label = ctk.CTkLabel(
+            display_frame,
+            text=str(self.count),
+            font=("Arial", 90, "bold"),  # Larger, bolder font
+            text_color="#2ECC71",
+        )  # A vibrant green color
+        self.count_label.pack(expand=True)  # Center the label
 
-button = ctk.CTkButton(button_frame, text="+",
-                       corner_radius=50,
-                       font=("Arial", 100),
-                       command=add,
-                       height=150,
-                       width=150,
-                       fg_color="aqua",
-                       text_color="black",
-                       hover_color="blue",
-                       bg_color="black")
-button.pack(side="left", padx=10)
+        # --- Control Buttons Frame ---
+        # This frame will hold the increment and decrement buttons side-by-side
+        button_controls_frame = ctk.CTkFrame(self, fg_color="transparent")
+        button_controls_frame.pack(pady=20, padx=20)
 
-button2 = ctk.CTkButton(button_frame, text="-",
-                        corner_radius=50,
-                        font=("Arial", 100),
-                        command=minus,
-                        height=150,
-                        width=150,
-                        fg_color="aqua",
-                        text_color="black",
-                        hover_color="blue",
-                        bg_color="black")
-button2.pack(side="left", padx=10)
+        # Increment Button
+        self.plus_button = ctk.CTkButton(
+            button_controls_frame,
+            text="+",
+            corner_radius=15,  # Slightly rounded corners
+            font=("Arial", 60, "bold"),
+            command=self._add_count,
+            height=120,  # Larger hit area
+            width=120,
+            fg_color="#3498DB",  # A calming blue
+            text_color="white",
+            hover_color="#2980B9",
+        )  # Darker blue on hover
+        self.plus_button.pack(side="left", padx=(0, 15))  # Padding to the right
 
-button3 = ctk.CTkButton(app, text="Reset",
-                        corner_radius=25,
-                        text_color="black",
-                        font=("Arial", 15),
-                        command=cls,
-                        height=50,
-                        width=100,
-                        fg_color="orange",
-                        hover_color="red",)
-button3.pack(pady=10)
+        # Decrement Button
+        self.minus_button = ctk.CTkButton(
+            button_controls_frame,
+            text="-",
+            corner_radius=15,
+            font=("Arial", 60, "bold"),
+            command=self._minus_count,
+            height=120,
+            width=120,
+            fg_color="#E74C3C",  # A strong red
+            text_color="white",
+            hover_color="#C0392B",
+        )  # Darker red on hover
+        self.minus_button.pack(side="left", padx=(15, 0))  # Padding to the left
 
-app.mainloop()
+        # --- Reset Button ---
+        self.reset_button = ctk.CTkButton(
+            self,
+            text="Reset",
+            corner_radius=10,  # Moderate rounded corners
+            font=("Arial", 20, "bold"),
+            command=self._reset_count,
+            height=50,
+            width=150,
+            fg_color="#F39C12",  # An energetic orange
+            text_color="white",
+            hover_color="#E67E22",
+        )  # Darker orange on hover
+        self.reset_button.pack(pady=(30, 20))  # More vertical padding
+
+    # --- Button Command Functions ---
+    def _add_count(self):
+        self.count += 1
+        self.count_label.configure(text=str(self.count))
+
+    def _minus_count(self):
+        if self.count > 0:
+            self.count -= 1
+            self.count_label.configure(text=str(self.count))
+        else:
+            # Use CustomTkinter's messagebox for a more integrated look
+            tkmb.showwarning("Minimum Reached", "The count cannot go below zero!")
+            # The old root.mainloop() would create a new, blocking window each time
+            # Using tkmb is much better for simple alerts.
+
+    def _reset_count(self):
+        self.count = 0
+        self.count_label.configure(text=str(self.count))
+
+
+# --- Run the application ---
+if __name__ == "__main__":
+    app = TallyCounterApp()
+    app.mainloop()
