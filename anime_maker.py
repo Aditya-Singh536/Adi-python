@@ -10,8 +10,13 @@ app.geometry("395x545")
 app.configure(fg_color="#555555")
 app.title("Anime Maker!!")
 
-lbl = ctk.CTkLabel(app, text="Go in Full scren to\nWatch the whole Drawing!\nCan draw only one drawing at once!\nClose the canvas and go!", font=("Algera", 18))
+lbl = ctk.CTkLabel(
+    app,
+    text="Go in Full screen to\nWatch the whole Drawing!\nCan draw only one drawing at once!\nClose the canvas and go!",
+    font=("Algera", 18),
+)
 lbl.pack(pady=20)
+
 
 def doraemon():
     # Doraemon with Python Turtle
@@ -19,7 +24,6 @@ def doraemon():
         penup()
         goto(x, y)
         pendown()
-
 
     def aankha():
         fillcolor("#ffffff")
@@ -38,7 +42,6 @@ def doraemon():
                 fd(a)
         tracer(True)
         end_fill()
-
 
     def daari():
         ankur(-32, 135)
@@ -65,7 +68,6 @@ def doraemon():
         seth(-13)
         fd(60)
 
-
     def mukh():
         ankur(5, 148)
         seth(270)
@@ -74,7 +76,6 @@ def doraemon():
         circle(120, 50)
         seth(230)
         circle(-120, 100)
-
 
     def muflar():
         fillcolor("#ff0011")
@@ -90,7 +91,6 @@ def doraemon():
         circle(-5, 90)
         end_fill()
 
-
     def nak():
         ankur(-10, 158)
         seth(315)
@@ -99,11 +99,10 @@ def doraemon():
         circle(20)
         end_fill()
 
-
     def black_aankha():
         seth(0)
         ankur(-20, 195)
-        fillcolor('#000000')
+        fillcolor("#000000")
         begin_fill()
         circle(13)
         end_fill()
@@ -116,17 +115,16 @@ def doraemon():
 
         ankur(-17, 200)
         seth(0)
-        fillcolor('#ffffff')
+        fillcolor("#ffffff")
         begin_fill()
         circle(5)
         end_fill()
         ankur(0, 0)
 
-
     def face():
         fd(183)
         lt(45)
-        fillcolor('#ffffff')
+        fillcolor("#ffffff")
         begin_fill()
         circle(120, 100)
         seth(180)
@@ -149,7 +147,6 @@ def doraemon():
         seth(180)
         fd(64)
 
-
     def taauko():
         penup()
         circle(150, 40)
@@ -158,7 +155,6 @@ def doraemon():
         begin_fill()
         circle(150, 280)
         end_fill()
-
 
     def Doraemon():
         taauko()
@@ -230,14 +226,14 @@ def doraemon():
         end_fill()
 
         seth(70)
-        fillcolor('#ffffff')
+        fillcolor("#ffffff")
         begin_fill()
         circle(-30)
         end_fill()
 
         ankur(103.74, -182.59)
         seth(0)
-        fillcolor('#ffffff')
+        fillcolor("#ffffff")
         begin_fill()
         fd(15)
         circle(-15, 180)
@@ -248,7 +244,7 @@ def doraemon():
 
         ankur(-96.26, -182.59)
         seth(180)
-        fillcolor('#ffffff')
+        fillcolor("#ffffff")
         begin_fill()
         fd(15)
         circle(15, 180)
@@ -259,7 +255,7 @@ def doraemon():
 
         ankur(-133.97, -91.81)
         seth(50)
-        fillcolor('#ffffff')
+        fillcolor("#ffffff")
         begin_fill()
         circle(30)
         end_fill()
@@ -284,13 +280,13 @@ def doraemon():
         ankur(-103.42, 15.09)
         fd(90)
         seth(70)
-        fillcolor('#ffd200')
+        fillcolor("#ffd200")
         # print(pos())
         begin_fill()
         circle(-20)
         end_fill()
         seth(170)
-        fillcolor('#ffd200')
+        fillcolor("#ffd200")
         begin_fill()
         circle(-2, 180)
         seth(10)
@@ -309,8 +305,7 @@ def doraemon():
 
         black_aankha()
 
-
-    if __name__ == '__main__':
+    if __name__ == "__main__":
         screensize(800, 600, "#f0f0f0")
         pensize(3)
         speed(9)
@@ -318,11 +313,12 @@ def doraemon():
         ankur(100, -300)
         mainloop()
 
+
 def shinchan():
     wn = turtle.Screen()
     wn.setup(width=1000, height=700)
     speed(5)
-    turtle.title('Shinchan')
+    turtle.title("Shinchan")
 
     def myPosition(x, y):
         penup()
@@ -331,9 +327,8 @@ def shinchan():
 
     pensize(2)
 
-
     def short():
-        fillcolor('#fbff00')
+        fillcolor("#fbff00")
         begin_fill()
         right(25)
         forward(20)
@@ -353,7 +348,6 @@ def shinchan():
         forward(18)
         end_fill()
 
-
     def leftLeg():
         myPosition(-39, -25)
         fillcolor("#ffd699")
@@ -368,7 +362,6 @@ def shinchan():
         forward(50)
         end_fill()
 
-
     def leftSock():
         myPosition(-36, -78)
         fillcolor("#ffffff")
@@ -382,7 +375,6 @@ def shinchan():
         right(90)
         forward(21)
         end_fill()
-
 
     def leftShoe():
         myPosition(-69, -112)
@@ -409,8 +401,6 @@ def shinchan():
         circle(25, 25)
         end_fill()
 
-
-
     def rightLeg():
         myPosition(60, -28)
         fillcolor("#ffd699")
@@ -426,7 +416,6 @@ def shinchan():
         forward(55)
         end_fill()
 
-
     def rightSock():
         myPosition(64, -79)
         fillcolor("#ffffff")
@@ -440,7 +429,6 @@ def shinchan():
         right(80)
         forward(21)
         end_fill()
-
 
     def rightShoe():
         myPosition(64, -108)
@@ -464,7 +452,6 @@ def shinchan():
         left(25)
         forward(5)
         end_fill()
-
 
     def myShirt():
         myPosition(-75, 48)
@@ -503,12 +490,11 @@ def shinchan():
         circle(10, 70)
         end_fill()
 
-
     def myHead():
         myPosition(-20, 295)
         left(20)
         pensize(2)
-        fillcolor('#fcc6a0')
+        fillcolor("#fcc6a0")
         begin_fill()
         right(90)
         forward(40)
@@ -526,7 +512,7 @@ def shinchan():
         right(5)
         circle(100, 85)
         end_fill()
-        fillcolor('black')
+        fillcolor("black")
         begin_fill()
 
         pensize(2)
@@ -541,7 +527,7 @@ def shinchan():
         circle(100, 85)
         end_fill()
 
-        fillcolor('#fcc6a0')
+        fillcolor("#fcc6a0")
         begin_fill()
         right(180)
         circle(-100, 105)
@@ -557,18 +543,17 @@ def shinchan():
         forward(36)
         right(80)
         forward(50)
-        pencolor('#fcc6a0')
+        pencolor("#fcc6a0")
         right(90)
         forward(30)
 
         end_fill()
 
-
     def rightHand():
         # left(35)
         myPosition(197, 209)
-        pencolor('black')
-        fillcolor('#fcc6a0')
+        pencolor("black")
+        fillcolor("#fcc6a0")
         begin_fill()
         right(45)
         forward(6)
@@ -606,10 +591,9 @@ def shinchan():
         forward(10)
         end_fill()
 
-
     def leftHand():
         myPosition(-94, 242)
-        fillcolor('#fcc6a0')
+        fillcolor("#fcc6a0")
         begin_fill()
         right(10)
         forward(6)
@@ -623,11 +607,10 @@ def shinchan():
         forward(12)
         end_fill()
 
-
     def myBis():
         myPosition(-103, 291)
         right(90)
-        fillcolor('#02d302')
+        fillcolor("#02d302")
         begin_fill()
         right(90)
         forward(55)
@@ -659,8 +642,8 @@ def shinchan():
         right(90)
         forward(14)
         pendown()
-        pencolor('#9c5e4a')
-        fillcolor('#9c5e4a')
+        pencolor("#9c5e4a")
+        fillcolor("#9c5e4a")
         begin_fill()
         for i in range(5):
             forward(15)
@@ -673,7 +656,7 @@ def shinchan():
         left(90)
         forward(7)
         pendown()
-        fillcolor('#9c5e4a')
+        fillcolor("#9c5e4a")
         begin_fill()
         for i in range(5):
             forward(10)
@@ -684,7 +667,7 @@ def shinchan():
         right(90)
         forward(5)
         pendown()
-        fillcolor('#9c5e4a')
+        fillcolor("#9c5e4a")
         begin_fill()
         for i in range(5):
             forward(10)
@@ -694,18 +677,17 @@ def shinchan():
         right(180)
         forward(6)
         pendown()
-        fillcolor('#9c5e4a')
+        fillcolor("#9c5e4a")
         begin_fill()
         for i in range(5):
             forward(10)
             right(144)
         end_fill()
 
-
     def leftHand2():
         myPosition(-112, 284)
-        pencolor('black')
-        fillcolor('#fcc6a0')
+        pencolor("black")
+        fillcolor("#fcc6a0")
         begin_fill()
         right(180)
         forward(31)
@@ -719,11 +701,10 @@ def shinchan():
                 circle(4, 90)
         end_fill()
 
-
     def myMouth():
         myPosition(-25, 200)
         left(65)
-        fillcolor('#77332e')
+        fillcolor("#77332e")
         begin_fill()
         # circle(20)
         # forward(20)
@@ -731,7 +712,6 @@ def shinchan():
             circle(25, 90)
             circle(25 // 2, 90)
         end_fill()
-
 
     def myEyebrow(x, y):
         myPosition(x, y)
@@ -748,18 +728,16 @@ def shinchan():
             right(45)
             dot(15)
 
-
     def myEyelid(x, y):
         myPosition(x, y)
         pensize(2)
         left(170)
         circle(-23, 180)
 
-
     def myallEyes1(x, y):
         myPosition(x, y)
         right(90)
-        fillcolor('#000000')
+        fillcolor("#000000")
         begin_fill()
         circle(18)
         end_fill()
@@ -769,17 +747,16 @@ def shinchan():
         right(90)
         forward(7)
         pendown()
-        fillcolor('#ffffff')
+        fillcolor("#ffffff")
         begin_fill()
         left(90)
         circle(9)
         end_fill()
 
-
     def myallEyes2(x, y):
         myPosition(x, y)
         right(90)
-        fillcolor('#000000')
+        fillcolor("#000000")
         begin_fill()
         circle(18)
         end_fill()
@@ -789,7 +766,7 @@ def shinchan():
         right(90)
         forward(8)
         pendown()
-        fillcolor('#ffffff')
+        fillcolor("#ffffff")
         begin_fill()
         left(90)
         circle(9)
@@ -803,13 +780,11 @@ def shinchan():
         rightSock()
         rightShoe()
 
-
     def allHands():
         rightHand()
         leftHand()
         myBis()
         leftHand2()
-
 
     def allEyebrows():
         myEyebrow(-8, 300)
@@ -819,7 +794,6 @@ def shinchan():
         left(15)
         myEyelid(68, 265)
 
-
     def allEyes():
         myallEyes1(17, 275)
         myallEyes2(95, 270)
@@ -828,7 +802,6 @@ def shinchan():
         penup()
         goto(x, y)
         pendown()
-
 
     short()
     allLegs()
@@ -841,6 +814,7 @@ def shinchan():
     ht()
     done()
 
+
 def pikachu():
     t = turtle.Turtle()
 
@@ -849,50 +823,50 @@ def pikachu():
         t.goto(x, y)
         t.pendown()
 
-    def leftEye( x, y):
+    def leftEye(x, y):
         noTrace_goto(x, y)
         t.seth(0)
-        t.fillcolor('#333333')
+        t.fillcolor("#333333")
         t.begin_fill()
         t.circle(22)
         t.end_fill()
 
         noTrace_goto(x, y + 10)
-        t.fillcolor('#000000')
+        t.fillcolor("#000000")
         t.begin_fill()
         t.circle(10)
         t.end_fill()
 
         noTrace_goto(x + 6, y + 22)
-        t.fillcolor('#ffffff')
+        t.fillcolor("#ffffff")
         t.begin_fill()
         t.circle(10)
         t.end_fill()
 
-    def rightEye( x, y):
+    def rightEye(x, y):
         noTrace_goto(x, y)
         t.seth(0)
-        t.fillcolor('#333333')
+        t.fillcolor("#333333")
         t.begin_fill()
         t.circle(22)
         t.end_fill()
 
         noTrace_goto(x, y + 10)
-        t.fillcolor('#000000')
+        t.fillcolor("#000000")
         t.begin_fill()
         t.circle(10)
         t.end_fill()
 
         noTrace_goto(x - 6, y + 22)
-        t.fillcolor('#ffffff')
+        t.fillcolor("#ffffff")
         t.begin_fill()
         t.circle(10)
         t.end_fill()
 
-    def mouth( x, y):
+    def mouth(x, y):
         noTrace_goto(x, y)
 
-        t.fillcolor('#88141D')
+        t.fillcolor("#88141D")
         t.begin_fill()
 
         l1 = []
@@ -928,7 +902,7 @@ def pikachu():
         t.end_fill()
 
         noTrace_goto(17, 54)
-        t.fillcolor('#DD716F')
+        t.fillcolor("#DD716F")
         t.begin_fill()
         t.seth(145)
         t.circle(40, 86)
@@ -945,11 +919,11 @@ def pikachu():
         t.fd(4)
         t.back(8)
 
-    def leftCheek( x, y):
+    def leftCheek(x, y):
         turtle.tracer(False)
         noTrace_goto(x, y)
         t.seth(300)
-        t.fillcolor('#DD4D28')
+        t.fillcolor("#DD4D28")
         t.begin_fill()
         a = 2.3
         for i in range(120):
@@ -964,11 +938,11 @@ def pikachu():
         t.end_fill()
         turtle.tracer(True)
 
-    def rightCheek( x, y):
+    def rightCheek(x, y):
         turtle.tracer(False)
         noTrace_goto(x, y)
         t.seth(60)
-        t.fillcolor('#DD4D28')
+        t.fillcolor("#DD4D28")
         t.begin_fill()
         a = 2.3
         for i in range(120):
@@ -983,9 +957,9 @@ def pikachu():
         t.end_fill()
         turtle.tracer(True)
 
-    def colorLeftEar( x, y):
+    def colorLeftEar(x, y):
         noTrace_goto(x, y)
-        t.fillcolor('#000000')
+        t.fillcolor("#000000")
         t.begin_fill()
         t.seth(330)
         t.circle(100, 35)
@@ -996,9 +970,9 @@ def pikachu():
         t.circle(-300, 10)
         t.end_fill()
 
-    def colorRightEar( x, y):
+    def colorRightEar(x, y):
         noTrace_goto(x, y)
-        t.fillcolor('#000000')
+        t.fillcolor("#000000")
         t.begin_fill()
         t.seth(300)
         t.circle(-100, 30)
@@ -1235,7 +1209,7 @@ def pikachu():
         t.end_fill()
 
         # tail
-        t.fillcolor('#923E24')
+        t.fillcolor("#923E24")
         noTrace_goto(126.82, -156.84)
         t.begin_fill()
 
@@ -1243,7 +1217,7 @@ def pikachu():
         t.fd(40)
         t.left(100)
         t.fd(40)
-        t.pencolor('#923e24')
+        t.pencolor("#923e24")
         t.seth(-30)
         t.fd(30)
         t.left(140)
@@ -1256,7 +1230,7 @@ def pikachu():
         t.fd(20)
         t.left(130)
         t.fd(18)
-        t.pencolor('#000000')
+        t.pencolor("#000000")
         t.seth(-45)
         t.fd(67)
         t.right(110)
@@ -1282,9 +1256,9 @@ def pikachu():
         rightEye(50, 110)
         t.hideturtle()
 
-    def cap( x, y):
+    def cap(x, y):
         noTrace_goto(x, y)
-        t.fillcolor('#CD0000')
+        t.fillcolor("#CD0000")
         t.begin_fill()
         t.seth(200)
         t.circle(400, 7)
@@ -1312,7 +1286,7 @@ def pikachu():
         t.circle(270, 27)
         t.circle(-80, 98)
 
-        t.fillcolor('#444444')
+        t.fillcolor("#444444")
         t.begin_fill()
         t.left(180)
         t.circle(80, 197)
@@ -1321,11 +1295,11 @@ def pikachu():
         t.end_fill()
 
         noTrace_goto(-58, 270)
-        t.pencolor('#228B22')
+        t.pencolor("#228B22")
         t.dot(35)
 
         noTrace_goto(-30, 280)
-        t.fillcolor('#228B22')
+        t.fillcolor("#228B22")
         t.begin_fill()
         t.seth(100)
         t.circle(30, 180)
@@ -1336,31 +1310,31 @@ def pikachu():
         t.right(90)
         t.fd(15)
         t.end_fill()
-        t.pencolor('#000000')
-
+        t.pencolor("#000000")
 
     t.speed(100)
     body()
     turtle.mainloop()
 
+
 def peppa_pig():
-    def nose(x, y):  
-        penup()  
+    def nose(x, y):
+        penup()
         goto(x, y)
-        pendown()  
-        setheading(-30)  
+        pendown()
+        setheading(-30)
         begin_fill()
         a = 0.4
         for i in range(120):
             if 0 <= i < 30 or 60 <= i < 90:
                 a = a + 0.08
-                left(3)  
-                forward(a)  
+                left(3)
+                forward(a)
             else:
                 a = a - 0.08
                 left(3)
                 forward(a)
-        end_fill()  
+        end_fill()
 
         penup()
         setheading(90)
@@ -1368,11 +1342,11 @@ def peppa_pig():
         setheading(0)
         forward(10)
         pendown()
-        pencolor(255, 155, 192)  
+        pencolor(255, 155, 192)
         setheading(10)
         begin_fill()
         circle(5)
-        color(160, 82, 45)  
+        color(160, 82, 45)
         end_fill()
 
         penup()
@@ -1386,8 +1360,7 @@ def peppa_pig():
         color(160, 82, 45)
         end_fill()
 
-
-    def head(x, y):  
+    def head(x, y):
         color((255, 155, 192), "pink")
         penup()
         goto(x, y)
@@ -1410,16 +1383,15 @@ def peppa_pig():
         for i in range(60):
             if 0 <= i < 30 or 60 <= i < 90:
                 a = a + 0.08
-                lt(3)  
-                fd(a)  
+                lt(3)
+                fd(a)
             else:
                 a = a - 0.08
                 lt(3)
                 fd(a)
         end_fill()
 
-
-    def ears(x, y):  
+    def ears(x, y):
         color((255, 155, 192), "pink")
         penup()
         goto(x, y)
@@ -1444,8 +1416,7 @@ def peppa_pig():
         circle(-50, 56)
         end_fill()
 
-
-    def eyes():  
+    def eyes():
         color((255, 155, 192), "white")
         penup()
         setheading(90)
@@ -1490,8 +1461,7 @@ def peppa_pig():
         circle(3)
         end_fill()
 
-
-    def cheek(x, y):  
+    def cheek(x, y):
         color((255, 155, 192))
         penup()
         goto(x, y)
@@ -1501,8 +1471,7 @@ def peppa_pig():
         circle(30)
         end_fill()
 
-
-    def mouth(x, y):  
+    def mouth(x, y):
         color(239, 69, 19)
         penup()
         goto(x, y)
@@ -1511,8 +1480,7 @@ def peppa_pig():
         circle(30, 40)
         circle(40, 80)
 
-
-    def body(x, y):  
+    def body(x, y):
         color("red", (255, 99, 71))
         penup()
         goto(x, y)
@@ -1532,8 +1500,7 @@ def peppa_pig():
         circle(-150, 24)
         end_fill()
 
-
-    def hands(x, y):  
+    def hands(x, y):
         color((255, 155, 192))
         penup()
         goto(x, y)
@@ -1566,8 +1533,7 @@ def peppa_pig():
         setheading(-170)
         circle(20, 90)
 
-
-    def foot(x, y):  
+    def foot(x, y):
         pensize(10)
         color((240, 128, 128))
         penup()
@@ -1595,8 +1561,7 @@ def peppa_pig():
         pensize(15)
         fd(20)
 
-
-    def tail(x, y):  
+    def tail(x, y):
         pensize(4)
         color((255, 155, 192))
         penup()
@@ -1607,47 +1572,77 @@ def peppa_pig():
         circle(10, 330)
         circle(70, 30)
 
-
-    def setting():  
+    def setting():
         pensize(4)
-        hideturtle()  
-        colormode(255)  
+        hideturtle()
+        colormode(255)
         color((255, 155, 192), "pink")
         setup(840, 500)
         speed(10)
 
-
     def main():
         setting()
-        nose(-100, 100)  
-        head(-69, 167)  
-        ears(0, 160)  
-        eyes()  
-        cheek(80, 10)  
-        mouth(-20, 30)  
-        body(-32, -8)  
-        hands(-56, -45)  
-        foot(2, -177)  
-        tail(148, -155)  
+        nose(-100, 100)
+        head(-69, 167)
+        ears(0, 160)
+        eyes()
+        cheek(80, 10)
+        mouth(-20, 30)
+        body(-32, -8)
+        hands(-56, -45)
+        foot(2, -177)
+        tail(148, -155)
         done()
 
-
-    if __name__ == '__main__':
+    if __name__ == "__main__":
         main()
 
-bt_frame = ctk.CTkFrame(app,fg_color="#555555")
+
+bt_frame = ctk.CTkFrame(app, fg_color="#555555")
 bt_frame.pack(pady=120)
 
-bt1 = ctk.CTkButton(bt_frame, text="Doraemon", width=95, height=75, command=doraemon, fg_color="purple", hover_color="blue")
+bt1 = ctk.CTkButton(
+    bt_frame,
+    text="Doraemon",
+    width=95,
+    height=75,
+    command=doraemon,
+    fg_color="purple",
+    hover_color="blue",
+)
 bt1.grid(row=0, column=0)
 
-bt2 = ctk.CTkButton(bt_frame, text="Peppa Pig", width=95, height=75, command=peppa_pig, fg_color="purple", hover_color="blue")
+bt2 = ctk.CTkButton(
+    bt_frame,
+    text="Peppa Pig",
+    width=95,
+    height=75,
+    command=peppa_pig,
+    fg_color="purple",
+    hover_color="blue",
+)
 bt2.grid(row=0, column=1, padx=10)
 
-bt3 = ctk.CTkButton(bt_frame, text="Shinchan", width=95, height=75, command=shinchan, fg_color="purple", hover_color="blue")
+bt3 = ctk.CTkButton(
+    bt_frame,
+    text="Shinchan",
+    width=95,
+    height=75,
+    command=shinchan,
+    fg_color="purple",
+    hover_color="blue",
+)
 bt3.grid(row=1, column=0, pady=10)
 
-bt4 = ctk.CTkButton(bt_frame, text="Pikachu", width=95, height=75, command=pikachu, fg_color="purple", hover_color="blue")
+bt4 = ctk.CTkButton(
+    bt_frame,
+    text="Pikachu",
+    width=95,
+    height=75,
+    command=pikachu,
+    fg_color="purple",
+    hover_color="blue",
+)
 bt4.grid(row=1, column=1, pady=10, padx=10)
 
 app.mainloop()
