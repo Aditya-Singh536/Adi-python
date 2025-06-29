@@ -1,37 +1,68 @@
-import random as roam
+import random
 
-def guess_num():
 
-    ask = input('Do you wanna play this game? (Yes/No):')
-    if ask.lower() == 'yes':
+def play_guess_num():
+    """Plays a number guessing game."""
 
-        guess = roam.choice(range(1,1001))
-        ask_user = input('\nEnter the number you geussed (The range is from 1 to 1000):')
-
-        if ask_user.isnumeric():
-            ask_user = int(ask_user)
-
-            if ask_user > 1000:
-                print(ValueError('\nInvalid Input! The input can\'t go beond 1000'))
-            else:    
-                if ask_user == guess:
-                    print('\nYou geussed the number right!')
-
-                elif ask_user !=  guess:
-                    print(f'\nThe number was {guess}.\nThe number changed!')
-                    guess_num()
+    print("Welcome to the Number Guessing Game!")
+    while True:
+        try_play = input("Do you want to play? (Yes/No): ").lower()
+        if try_play == "yes":
+            break
+        elif try_play == "no":
+            print("No worries! Maybe next time.")
+            return  # Exit the function if they don't want to play
         else:
-            print(ValueError('\nInvalid Input!'))
+            print("Invalid input! Please enter 'Yes' or 'No'.")
 
-    elif ask.lower() == 'no':
-        print('Just try once')
-        ask2 = input('Do you want to play? (Yes/No):')
-        if ask2.lower() == 'yes':
-            print('\nYou are the pro who doen\'t want to show your levels.')
-            guess_num()
-        elif ask2.lower() == 'no':
-            print('\nYou are the person who will become the greatest noob of the world.')
-        else:
-            print(ValueError('\nInvalid Input!'))    
+    # Game starts here
+    secret_number = random.randint(1, 1000)
+    max_attempts = 10  # You can adjust this
+    attempts = 0
 
-guess_num()        
+    print(
+        f"\nI'm thinking of a number between 1 and 1000. You have {max_attempts} attempts."
+    )
+
+    while attempts < max_attempts:
+        attempts += 1
+        try:
+            user_guess_str = input(
+                f"Attempt {attempts}/{max_attempts}: Enter your guess: "
+            )
+
+            if not user_guess_str.isdigit():
+                print("Invalid input! Please enter a whole number.")
+                continue  # Go to the next loop iteration without counting as an actual guess
+
+            user_guess = int(user_guess_str)
+
+            if not (1 <= user_guess <= 1000):
+                print("Your guess is out of the 1 to 1000 range. Please try again.")
+                continue  # Go to the next loop iteration
+
+            if user_guess == secret_number:
+                print(
+                    f"\nCongratulations! You guessed the number '{secret_number}' correctly in {attempts} attempts!"
+                )
+                break  # Exit the game loop
+            elif user_guess < secret_number:
+                print("Too low! Try a higher number.")
+            else:  # user_guess > secret_number
+                print("Too high! Try a lower number.")
+
+        except ValueError:
+            # This catch is mostly for int() conversion if isdigit() was somehow bypassed
+            # or if input was empty (though isdigit() handles that).
+            print("Invalid input! Please enter a valid number.")
+            continue  # Go to the next loop iteration
+
+    else:  # This 'else' block executes if the loop finishes without a 'break' (i.e., attempts ran out)
+        print(f"\nGame Over! You've run out of attempts.")
+        print(f"The number I was thinking of was: {secret_number}")
+
+    print("\nThanks for playing!")
+
+
+# Call the main game function to start
+play_guess_num()
