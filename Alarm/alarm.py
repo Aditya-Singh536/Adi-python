@@ -4,26 +4,6 @@ import pygame as pyme
 pyme.init()
 pyme.mixer.init()
 
-ask = input("Enter how long should the timer run:")
-if ask.isdigit():
-    ask = int(ask)
-else:
-    raise Exception("Invalid Input!")
-
-print("")
-
-for i in range(ask, 0, -1):
-    seconds = i % 60
-    minutes = int(i / 60) % 60
-    hours = int(i / 3600)
-
-    print(f"{hours:02}:{minutes:02}:{seconds:02}")
-
-    time.sleep(1)
-
-print("\nCountdown is over!!")
-
-
 def play_sound():
     try:
         pyme.mixer.music.load(
@@ -39,5 +19,4 @@ def play_sound():
     except pyme.error as error:
         print(f"Error playing sound: {error}")
 
-
-play_sound()
+get_time = print("What time to set the alarm at?")
