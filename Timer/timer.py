@@ -28,8 +28,7 @@ def play_sound():
     try:
         pyme.mixer.music.load(
             "/home/user/Adi-python/Timer/timer_end.mp3"
-        )  # Your choice of BEEP. Give the path. I've provided some.
-
+        )  #! IMPORTANT: Replace this with the actual path to your MP3 file.
         pyme.mixer.music.set_volume(1.0)
         pyme.mixer.music.play(3)
 
